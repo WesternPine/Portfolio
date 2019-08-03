@@ -1,0 +1,99 @@
+#background{  
+  /* The image used */
+  background-image: url("../IMG/background.png");
+
+  /* Add the blur effect */
+
+  /* Full height */
+  height: 83.8vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  display: flex;
+  flex-direction: column;
+  flex-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#body{
+  background-color: #111;
+  color: #DDD;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  width: 400px;
+  height: 200px;
+  
+  margin: auto;
+  padding: 0px;
+
+  border: 3.5px;
+  border-color: #555;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+#title{
+  font-weight: bold;
+  font-size: 40px;
+  padding-bottom: 15px;
+}
+
+#description{
+  font-size: 17px;
+  color: #888;
+  padding-bottom: 40px;
+}
+
+#button{
+  color: #DDD;
+  font-weight: bold;
+  
+  margin: 0px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  border: 1px;
+  border-color: #DDD;
+  border-style: solid;
+  border-radius: 50px;
+  
+  transition: all 200ms ease-in-out;
+}
+
+#button:hover{
+  text-shadow: none;
+  color: #111;
+  background-color: #DDD;
+  
+  transition: all 200ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

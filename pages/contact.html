@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tyler Christensen</title>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="icon" href="../lib/IMG/logo.png">
+    <link rel="stylesheet" href="../lib/CSS/style.css">
+    
+    <link rel="stylesheet" href="../lib/CSS/contact-style.css">
+  </head>
+  
+  <header>
+    <nav>
+      <h1>WesternPine</h1>
+      <ul class="nav-links">
+        <a href="/"><li>Home</li></a>
+        <a href="/about"><li>About</li></a>
+        <a href="/work"><li>Work</li></a>
+        <a href="/contact"><li>Contact</li></a>
+      </ul>
+      <div class="menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <script src="../lib/JS/menu.js"></script>
+  </header>
+    
+  <div id="body">
+    <div class="container">
+      
+      <div class="socials">
+        <div class="social">
+          <a href="https://github.com/WesternPine" target="_blank"><i class="fab fa-github icon"></i></a>
+          <h1 class="title">Visit Github</h1>
+        </div>
+        <div class="social">
+          <a href="mailto:tyler@westernpine.dev"><i class="fas fa-inbox icon"></i></a>
+          <h1 class="title">Send Personal E-Mail</h1>
+        </div>
+      </div>
+      
+      <div class="main">
+          <div class="header">
+            <h1>Contact Me</h1>
+            <p>You can also send me an E-Mail from here.</p>
+          </div>
+          <form name:"form" method:"post" class="form">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="email" id="email" placeholder="E-Mail">
+            <input type="text" name="subject" id="subject" placeholder="Subject">
+            <textarea name="message" id="message" placeholder="Message"></textarea>
+          </form>
+          <p id="status">All areas must be filled.</p>
+          
+          <div>modifiedButton - wait - not-allowed</div>
+          
+          <div id="formBtn" class="button"> 
+              <p id="formBtnTxt">Send</p>
+              <pre> </pre>
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </div>
+
+        </div>
+      
+    </div>
+  </div>
+  
+  <footer>
+    <p id="copyright">&copy 2019 Tyler Christensen</p>
+    <a id="sourcecode" href="https://github.com/WesternPine/Portfolio" target="_blank">View Sourcecode</a>
+  </footer>
+  
+  <script src="../lib/JS/submit.js"></script>
+  
+</html>

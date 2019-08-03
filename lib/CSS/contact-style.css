@@ -1,0 +1,164 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+#body{
+  min-height: 83.8vh;
+}
+
+.socials{
+  display: flex;
+  flex-direction: row;
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 15px;
+}
+
+.social{
+  padding: 15px;
+  margin: 10px 100px;
+}
+
+.social a{
+  font-size: 200px;
+}
+
+.social h1{
+  font-size: 20px;
+  
+  margin: 20px;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+
+  color: #FFF;
+  background-color: #333;
+  
+  width: 700px;
+  
+  padding: 20px;
+  margin: 10px;
+  margin-bottom: 50px;
+  
+  border: 0px;
+  border-radius: 5px;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1{
+  font-size: 40px;
+  margin: 20px;
+}
+
+.header p{
+  font-size: 17px;
+  color: #888;
+  margin: 5px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+  
+  margin: 25px 0px 10px 0%;
+  
+  width: 100%;
+}
+
+.form input{
+  top: 0;
+  left: 0;
+  width: 90%;
+  padding: 20px 10px;
+  margin: 10px 0px;
+  border: none;
+  border-bottom: 1px solid #DDD;
+  outline: none;
+
+  color: #DDD;
+  background: #444;
+  font-family: Roboto;
+  font-size: 16px;
+  
+  height: 10px;
+}
+
+#message{
+  top: 0;
+  left: 0;
+  width: 90%;
+  padding: 20px 10px;
+  margin: 10px 0px;
+  border: none;
+  border-bottom: 1px solid #DDD;
+  outline: none;
+
+  color: #DDD;
+  background: #444;
+  font-family: Roboto;
+  font-size: 16px;
+
+  min-height: 50px;
+  resize: vertical;
+}
+
+#status{
+  color: #888;
+  margin: 5px;
+}
+
+.button{
+  cursor: pointer;
+  display: inline-flex;
+  
+  color: #DDD;
+  font-weight: bold;
+  
+  margin: 5px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  border: 1px;
+  border-color: #DDD;
+  border-style: solid;
+  border-radius: 50px;
+  
+  transition: all 200ms ease-in-out;
+}
+
+.button:hover{
+  text-shadow: none;
+  color: #111;
+  background-color: #DDD;
+  
+  transition: all 200ms ease-in-out;
+}
+
+.modifiedButton{
+  text-shadow: none;
+  color: #111;
+  background-color: #DDD;
+}

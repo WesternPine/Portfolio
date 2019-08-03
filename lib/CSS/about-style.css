@@ -1,0 +1,64 @@
+#body{
+  overflow: hidden;
+  min-height: 78.8vh;
+  
+  padding: 2.5vh;
+  
+  display: inline-flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: center;
+}
+
+.card{
+  overflow: hidden;
+  display: block;
+  
+  background-color: #333;
+  max-width: 300px;
+  
+  margin: 30px;
+  padding: 0px;
+
+  border: 0px;
+  border-radius: 15px;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  
+  font-weight: bold;
+  font-size: 20px;
+  
+  padding: 15px 0px;
+  background-color: #666;
+}
+
+.description{
+  background-color: #333;
+  
+  font-size: 17px;
+  color: #888;
+  padding: 5px;
+}
+
+.items{
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  margin: 5px;
+  padding: 5px;
+  
+  font-family: Roboto;
+  
+  color: #DDD;
+  background-color: #666;
+  
+  border: 0px;
+  border-radius: 3px;
+}

@@ -1,0 +1,31 @@
+.container{  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#body{
+  overflow: hidden;
+  min-height: 35.8vh;
+}
+
+#logo{
+  font-size: 400px;
+  margin-top: 50px;
+}
+
+#title{
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#description{
+  font-size: 17px;
+  color: #888;
+  max-width: 900px;
+  margin: 10px;
+  text-align: center;
+}

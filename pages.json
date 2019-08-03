@@ -1,0 +1,20 @@
+{
+  "pages": [
+    {
+      "url": "/",
+      "file": "pages/index.html"
+    },
+    {
+      "url": "/about",
+      "file": "pages/about.html"
+    },
+    {
+      "url": "/work",
+      "file": "pages/work.html"
+    },
+    {
+      "url": "/contact",
+      "file": "pages/contact.html"
+    }
+  ]
+}

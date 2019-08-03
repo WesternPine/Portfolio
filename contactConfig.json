@@ -1,0 +1,8 @@
+{
+  "username": "root",
+  "password": "usbw",
+  "ip": "localhost",
+  "port": "3307",
+  "database": "forms",
+  "table": "forms"
+}
