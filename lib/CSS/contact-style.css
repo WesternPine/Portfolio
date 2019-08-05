@@ -22,8 +22,11 @@
 }
 
 .social{
+/*
   padding: 15px;
   margin: 10px 100px;
+  */
+  margin: 1% 10%;
 }
 
 .social a{
@@ -46,7 +49,10 @@
   color: #FFF;
   background-color: #333;
   
+  /*
   width: 700px;
+  */
+  width: 55%;
   
   padding: 20px;
   margin: 10px;

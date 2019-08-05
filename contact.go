@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"	
-	"gopkg.in/gomail.v2"
+	//"gopkg.in/gomail.v2"
 	
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
@@ -43,8 +43,8 @@ func addWebForm(w http.ResponseWriter, r *http.Request) {
 		//bad json
 		w.Write([]byte("false"))
 	} else {
-		//err = addFormToSQL(form)
-		err = emailForm(form)
+		err = addFormToSQL(form)
+		//err = emailForm(form)
 
 		if err != nil {
 			//internal error
@@ -57,19 +57,19 @@ func addWebForm(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func emailForm(f Form) error {
-	m := gomail.NewMessage()
-	m.SetHeader("From", "no-reply-form-submission@westernpine.dev")
-	m.SetHeader("To", "tyler@westernpine.dev")
-	m.SetAddressHeader("Cc", f.Email, f.Name)
-	m.SetHeader("Subject", f.Subject)
-	m.SetBody("text/html", f.Message)
-
-	d := gomail.Dialer{Host: "localhost", Port: 587}
-	if err := d.DialAndSend(m); err != nil {
-    	panic(err)
-	}
-}
+//func emailForm(f Form) error {
+//	m := gomail.NewMessage()
+//	m.SetHeader("From", "no-reply-form-submission@westernpine.dev")
+//	m.SetHeader("To", "tyler@westernpine.dev")
+//	m.SetAddressHeader("Cc", f.Email, f.Name)
+//	m.SetHeader("Subject", f.Subject)
+//	m.SetBody("text/html", f.Message)
+//
+//	d := gomail.Dialer{Host: "localhost", Port: 587}
+//	if err := d.DialAndSend(m); err != nil {
+//    	panic(err)
+//	}
+//}
 
 func addFormToSQL(f Form) error {
 	var table string
@@ -111,10 +111,10 @@ creates table if not already existing
 returns database and table name
 */
 func openCon() (string, *sql.DB, error) {
-	byteArray, err := ioutil.ReadFile("config.json")
+	byteArray, err := ioutil.ReadFile("contactConfig.json")
 	if err != nil {
 		fmt.Println(err.Error())
-		return "", nil, errors.New("unable to read 'config.json'")
+		return "", nil, errors.New("unable to read 'contactConfig.json'")
 	}
 
 	config := new(Config)
