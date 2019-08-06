@@ -1,0 +1,1 @@
+sudo go run host.go
