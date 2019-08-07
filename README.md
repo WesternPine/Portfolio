@@ -1,6 +1,6 @@
 # Portfolio
 
-[![Steamy](https://imgur.com/kA46jst)](https://westernpine.dev)
+[![Steamy](https://i.imgur.com/kA46jst.png)](https://westernpine.dev)
 
 ^ [Click To Visit Me!](https://westernpine.dev)
 
