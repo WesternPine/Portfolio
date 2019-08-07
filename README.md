@@ -6,103 +6,80 @@
 
 ## Introduction
 
-TicketBot was created as an effort to implement a support system into any discord environment, whether it be a community gaming server, or a software development space. If you plan on hosting your own bot, MySQL is a requirement as the TicketBot was made to run without using any config files if possible. If you have the bot added to your server already, take a look at [Usage](https://github.com/WesternPine/TicketBot#usage). Otherwise, let's get started!
+My portfolio was my first attempt at a personal/(semi)professional portfolio, or even a website in general. I tried to make this as easy to use and customize as possible, so that others can get a quick head-start on their personal projects. With every website however, comes some customization that needs to be adjusted in the backend of things. All of which will be explained [later](https://github.com/WesternPine/Portfolio#setup).
 
-## Downloading The Jar (Requires A Java IDE, Java 8 JDK, and Git):
+## Installation (Requires Git):
 
-  - Clone the TicketBot Repository, and add to your IDE.
-  - Run the project as a `Maven Build` with goals of `clean install`
-  - Production Jar-> `Project-Folder/target/TicketBot-X.jar`
+  - Clone the Portfolio Repository.
+  - Look at the beautiful code.
   
-## Pre-Set-Up Information:
+## Usage (Requires GoLang):
 
-To set up and run the jar, there are a few different options depending on how you run it. All options use the same configuration keys to identify values in any of the 3 launch options. If any keys were not set-up correctly, the program will default to the next lowest tier until using a configuration file variable that would be automatically generated. In English: We got your back. <3
+  - Windows:
+    - Either run `zStart.bat` or `go run portfolio.go`
+  - Linux:
+    - Ensure you can run GoLang as a sudo command.
+    - Either run `./zStart.sh` or `sudo go run portfolio.go`
+  - Other/All OS:
+    - run `go run portfolio.go`
 
-### Configuration Keys
+## Setup
 
-The following are configuration keys to be used when setting up the bot.
+Setting up the website to work on your server or computer is actually pretty easy, though it does need a little set-up if you want to use all of it's features. To begin, TLS is optional, be sure to read both methods of installation depending on your decision. Additionally, SQL is also optional, though it requires a bit of digging into the code to change some things. Also, instead of disabling MySQL, we will be disabling the entire contact/form functionality of the website to keep things simple. In my instance though, I went with a MySQL Database to store all of the information users submitted to me through my website. Lets start with some general configuration.
 
-| Key | Description |
-|-----|-------------|
-| BOT_TOKEN | Token for account to be used by the bot. |
-| COMMAND_PREFIX | The command prefix to be listening for. |
-| SQL_IP | The Ip of the MySQL database. |
-| SQL_PORT | The port to use for the MySQL database. |
-| SQL_DATABASE | The SQL Database to use. |
-| SQL_USERNAME | The Username of the account to be used. |
-| SQL_PASSWORD | The password for the user account to be used. |
+### Configuration
 
-### MySQL
+If you are not using MySQL, you may skip this part. If you are using MySQL, you might not notice it, but you are actually missing a configuration file. Thus, you will have to create it on your own. Start by creating a new text/json file, and name it: `contactConfig.json` as this is the exact name used in the hosting software written in go. You can change this in the go file. Now, we must populate it. Go ahead and paste the following information in the file you just created.
 
-TicketBot requires a SQL database to create tables (one for each server), to delete values from those tables, and to insert values into them as well. As long as the bot has those permissions, everything else is automated from there.
-
-## Setup (almost there...)
-
-  - Failover/Fallback Configuration Hierarchy: 
-  
 ```
-Startup Arguments > System Environmental Variables > Configuration File (Automatically Generated, Last Resort)
-```
-
-  - Starup Arguments:
-  
-```
-java -jar TicketBot-X.jar -[Configuration Key] [Value] -[Configuration Key 2] [Value] (etc...)
+{
+  "username": "root",
+  "password": "password",
+  "ip": "localhost",
+  "port": "3306",
+  "database": "forms",
+  "table": "forms"
+}
 ```
 
-  - Environmental Variables:
+Please make sure the user specified has access to the database via ip added to the network, ip added to user, user added to database.
 
-    - This is mostly used for services such as [Heroku](https://heroku.com) where you can set the variables manually. 
+### MySQL (Setup)
 
-  - Configuration File:
-  
-```
-{[Configuration Key]: [Value],[Configuration Key]: [Value], (etc...)}
-```
+If you decided against MySQL, please skip to the next section. If not, then this is very simple. Get ahold of any MySQL database you're comfortable with. Create a database `forms` (or whatever is set in your `contactConfig.json`).
 
-## Starting The Bot (finally!)
+## Final Setup And Configuration
 
-Start your bot in any of the 3 ways listed above, with the proper configuration information set up. (Please have MySQL set up before starting the bot... We programmers don't code magic! :P) Add the bot account used, to your server if you havn't already, and type the help command to get started!
+Now running the site's pages is pretty straight-forward. Go to the `pages.json`file. There you should see some lines of code that specify a url path `/` and a file path `/pages/index.html`. This is where each url path corresponds with the web-page file path. Pretty straight forward. Now dealing with the rest of the website... This is where things can get complicated or easy as pie. Let's start by using the defaults.
+
+### With TLS
+
+Using TLS means you don't have to deal with the website's code. Though, you will need to set-up your own website's certificates. I will not be explaing how to do this here as there are plenty of explinations out there. However, to run TLS on the site, you must have your key named `privkey.pem` and cert named `cert.pem`, and have them both located in the same directory as the `portfolio.go` file. And that's it for TLS! One last change you must make for everything to operate, is by going into the file at `/lib/JS/submit.js` and changing the line url around line 22, to `https://your.domain/formsubmissionhandler` which will save any forms submitted using the server. (Please notice the use of 's' in https. As https is port 443, and http is port 80)
+
+### Without MySQL (With Or Without TLS)
+
+If you decide not to run the MySQL portion of the site. You will have to do a little digging into the files. But don't worry! I saved you a backup here on github! <3
+
+First things first, if you decide to keep the post request feature, and implement your own version of post request support, where I address line deletion is probably where you need to do your modifications. 
+
+Getting into the deletions though, we need to open the `portfolio.go` file. You should see `http.HandleFunc("/formsubmissionhandler", addWebForm)` around line 18. You can go ahead and delete that. Scroll down about halfway to the bottom around line 98, you should see something like `type Form struct {`, and you can delete this line and everything below it. And finally, we must go to the top and delete all the imports that were used. In this case, it should see `_ "github.com/go-sql-driver/mysql"` around line 12, this can be deleted as well. That's it for disabling the MySQL features.
+
+### Without TLS With MySQL
+
+This is probably the easiest way to set up the website. You do not need to set up any certificates, or delete any code. But you do, need to change one line of code to submit your forms properly. Locate the file at `/lib/JS/submit.js` and change the line url around line 22, to `http://your.domain/formsubmissionhandler` which will save any forms submitted using the server. (Please notice the absence of 's' in http. As https is port 443, and http is port 80)
+
+## Starting The Server
+
+Please refer back to [Usage]() on how to start the server.
 
 
 ## Usage
 
-Whether you made your own bot, or want to use the [pre-existing one (Click Here)](https://discordapp.com/api/oauth2/authorize?client_id=498422164077150218&permissions=268463120&scope=bot), Using the bot is the same.
+Go ahead and visit your site! If the site is hosted, please use the ip or domain. If the site is on your computer, go to `localhost` in your browser. Please also note that is you use TLS, you must put `https://` before your ip/domain.
 
-___'Support Specialist' Role:___
+## Final Notes
 
-Administrators and memebers with the "Support Specialist" role:
-
-  - May modify the blacklisted users.
-  - May create unlimited tickets.
-  - Have access to all tickets.
-  - May modify ticket members.
-  - May close any tickets.
-
-___Commands:___
-
-Blacklist Commands
-
-  - !blacklist add ExampleUser#0000
-  - !blacklist remove ExampleUser#0000
-  
-Support Type Commands
-
-  - !enable (Support Type)
-  - !disable (Support Type)
-
-___Support Types___
-
-  - ban
-  - billing
-  - bug
-  - question
-  - request
-  - suggest
-  - support
-  - ticket
-
-Please note that by default, all support types are disabled for your server. To enable them, use the enable command followed by any of the listed support types. The response by the bot when using the help command is also automatically changed, this way when a user uses the help command, it shows which support type commands they may use. Ticket owners also have exclusive permission to add and remove users, and close tickets. Only those that are added to the tickets have the ability to leave tickets without closing them. And that's everything to know about TicketBot! If you have any other questions, comments, or concerns, feel free to contact me here on github or using my Discord information located in my profile. Thank you!
+And that's it! There's nothin to it if you somewhat understand what you're doing! There are a lot of technical aspects of this project that some may find complicated. If you do not understand the basic concepts of golang or any web development, I highly suggest going to do a little research before diving into this project. If you have any other questions, comments, or concerns, feel free to contact me here on github or use my website in my profile. Thank you!
 
 License
 ----
