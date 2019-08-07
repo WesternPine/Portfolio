@@ -1,6 +1,6 @@
 # Portfolio
 
-[![Steamy](https://prnt.sc/opkxds)](https://westernpine.dev)
+[![Steamy](https://imgur.com/kA46jst)](https://westernpine.dev)
 
 ^ [Click To Visit Me!](https://westernpine.dev)
 
