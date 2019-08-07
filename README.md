@@ -13,7 +13,7 @@ My portfolio was my first attempt at a personal/(semi)professional portfolio, or
   - Clone the Portfolio Repository.
   - Look at the beautiful code.
   
-## Usage (Requires GoLang, Optional MySQL):
+## Startup (Requires GoLang, Optional MySQL):
 
   - Windows:
     - Either run `zStart.bat` or `go run portfolio.go`
@@ -70,7 +70,7 @@ This is probably the easiest way to set up the website. You do not need to set u
 
 ## Starting The Server
 
-Please refer back to [Usage]() on how to start the server.
+Please refer back to [Usage](https://github.com/WesternPine/Portfolio#startup-requires-golang-optional-mysql) on how to start the server.
 
 
 ## Usage
