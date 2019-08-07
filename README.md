@@ -13,7 +13,7 @@ My portfolio was my first attempt at a personal/(semi)professional portfolio, or
   - Clone the Portfolio Repository.
   - Look at the beautiful code.
   
-## Usage (Requires GoLang):
+## Usage (Requires GoLang, Optional MySQL):
 
   - Windows:
     - Either run `zStart.bat` or `go run portfolio.go`
