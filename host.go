@@ -13,9 +13,12 @@ import (
 Then starts the web server.*/
 func main() {
 	loadHandlers()
-	err := http.ListenAndServe(":80", nil)
+	err := http.ListenAndServeTLS(":443", "cert.pem", "privkey.pem", nil)
 	if err != nil {
-		log.Fatal(err.Error())
+		err = http.ListenAndServe(":80", nil)
+		if err != nil {
+			log.Fatal(err.Error())
+		}
 	}
 }
 
