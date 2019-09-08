@@ -1,6 +1,6 @@
 # Portfolio
 
-[![Steamy](https://github.com/WesternPine/Portfolio/blob/master/lib/FILES/preview.png?raw=true)](https://westernpine.dev)
+[![Preview](https://github.com/WesternPine/Portfolio/blob/master/lib/FILES/preview.png?raw=true)](https://westernpine.dev)
 
 ^ [Click To Visit Me!](https://westernpine.dev)
 
